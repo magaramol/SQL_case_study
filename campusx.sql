@@ -92,5 +92,40 @@ order by month(datee)
 ----------------
 
 
+-- Problem 1: What are the top 5 patients who claimed the highest insurance amounts?
+
+select  PatientID, sum(claim) as ss
+from insurance_data
+group by PatientID
+order by ss desc
+limit 5;
+----------------------------------------------
+-- Problem 2: What is the average insurance claimed by patients based on the number of children they have?
+
+select children, avg(claim)
+  from insurance_data
+  group by children;
+
+-- using window function
+
+SELECT distinct 
+    children, 
+    AVG(claim) OVER(PARTITION BY children) AS average_claim
+FROM 
+    insurance_data
+ORDER BY 
+    children;
 
 
+-- Problem 3: What is the highest and lowest claimed amount by patients in each region?
+
+select region,max(claim),min(claim)
+ from insurance_data
+ group by region
+
+
+ ---using window function
+select distinct region,max(claim) over (partition by region) as mx,
+min(claim) over (partition by region) as mn
+from insurance_data;
+select * from insurance_data
