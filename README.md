@@ -1,6 +1,3 @@
-Sure, here is a README file for your SQL repository:
-
----
 
 # SQL Analytical Queries Repository
 
@@ -164,11 +161,6 @@ SELECT * FROM (
 ) t
 WHERE t.rn = 1;
 ```
-
----
-
-This README provides an overview of the SQL queries included in this repository. Each query is designed to solve a specific analytical problem, demonstrating the use of window functions and other SQL operations to derive insights from data.
-
 
 
 
